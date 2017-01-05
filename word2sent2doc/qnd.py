@@ -16,14 +16,14 @@ def int_list(string):
 def add_flags():
     adder = qnd.FlagAdder()
 
-    qnd.add_required_flag("num_classes")
-    qnd.add_required_flag("word_space_size")
-    qnd.add_flag("word_embedding_size", type=int, default=100)
-    qnd.add_flag("sentence_embedding_size", type=int, default=100)
-    qnd.add_flag("document_embedding_size", type=int, default=100)
-    qnd.add_flag("context_vector_size", type=int, default=100)
-    qnd.add_flag("hidden_layer_sizes", type=int_list, default=[100])
-    qnd.add_flag("dropout_keep_prob", type=float, default=1.0)
+    adder.add_required_flag("num_classes")
+    adder.add_required_flag("word_space_size")
+    adder.add_flag("word_embedding_size", type=int, default=100)
+    adder.add_flag("sentence_embedding_size", type=int, default=100)
+    adder.add_flag("document_embedding_size", type=int, default=100)
+    adder.add_flag("context_vector_size", type=int, default=100)
+    adder.add_flag("hidden_layer_sizes", type=int_list, default=[100])
+    adder.add_flag("dropout_keep_prob", type=float, default=1.0)
 
     return adder
 
