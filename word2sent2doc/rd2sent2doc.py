@@ -5,6 +5,7 @@ from . import extenteten as ex
 
 
 def rd2sent2doc(document,
+                label,
                 word_embeddings,
                 *,
                 sentence_embedding_size,
@@ -47,9 +48,11 @@ def rd2sent2doc(document,
             sequence_length=ex.id_tree_to_root_width(document),
             output_embedding_size=document_embedding_size)
 
-    return ex.mlp(document_embedding,
-                  layer_sizes=[*hidden_layer_sizes, output_layer_size],
-                  dropout_keep_prob=dropout_keep_prob)
+    return ex.classify(
+        ex.mlp(document_embedding,
+               layer_sizes=[*hidden_layer_sizes, output_layer_size],
+               dropout_keep_prob=dropout_keep_prob),
+        label)
 
 
 @ex.func_scope()
