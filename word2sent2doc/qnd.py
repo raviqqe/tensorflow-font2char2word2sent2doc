@@ -16,8 +16,8 @@ def int_list(string):
 def add_flags():
     adder = qnd.FlagAdder()
 
-    adder.add_required_flag("num_classes")
-    adder.add_required_flag("word_space_size")
+    adder.add_required_flag("num_classes", type=int)
+    adder.add_required_flag("word_space_size", type=int)
     adder.add_flag("word_embedding_size", type=int, default=100)
     adder.add_flag("sentence_embedding_size", type=int, default=100)
     adder.add_flag("document_embedding_size", type=int, default=100)
