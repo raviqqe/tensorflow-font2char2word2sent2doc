@@ -1,6 +1,6 @@
 import qnd
-import ex
 
+import .extenteten as ex
 from .word2sent2doc import word2sent2doc
 
 
