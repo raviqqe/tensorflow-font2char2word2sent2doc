@@ -3,5 +3,4 @@ include TFRake
 
 
 define_tasks('word2sent2doc',
-             packages: %w(tensorflow-qnd argtyp),
              pytest_flags: %w(--ignore word2sent2doc/extenteten))

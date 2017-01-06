@@ -19,6 +19,11 @@ setuptools.setup(
     author_email="raviqqe@gmail.com",
     url="https://github.com/raviqqe/tensorflow-word2sent2doc/",
     packages=["word2sent2doc"],
+    install_requires=[
+        "tensorflow-qnd",
+        "tensorflow-extenteten==0.0.1",
+        "argtyp"
+    ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

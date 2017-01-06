@@ -1,6 +1,3 @@
 [submodule "third/tensorflow-rakefile"]
 	path = third/tensorflow-rakefile
 	url = https://github.com/raviqqe/tensorflow-rakefile
-[submodule "third/tensorflow-extenteten"]
-	path = third/tensorflow-extenteten
-	url = https://github.com/raviqqe/tensorflow-extenteten
