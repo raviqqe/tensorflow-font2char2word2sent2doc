@@ -6,7 +6,6 @@ from .rd2sent2doc import rd2sent2doc
 
 @ex.func_scope()
 def word2sent2doc(document,
-                  label,
                   *,
                   word_space_size,
                   word_embedding_size,
@@ -21,7 +20,6 @@ def word2sent2doc(document,
             ex.flatten(document))
 
     return rd2sent2doc(document,
-                       label,
                        word_embeddings,
                        save_memory=True,
                        **rd2sent2doc_hyperparams)

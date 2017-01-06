@@ -5,15 +5,11 @@ from . import extenteten as ex
 
 
 def rd2sent2doc(document,
-                label,
                 word_embeddings,
                 *,
                 sentence_embedding_size,
                 document_embedding_size,
                 context_vector_size,
-                hidden_layer_sizes,
-                dropout_keep_prob,
-                output_layer_size,
                 save_memory=False):
     """
     word2sent2doc model lacking word embeddings as parameters
@@ -43,16 +39,10 @@ def rd2sent2doc(document,
             document)
 
     with tf.variable_scope("sent2doc"):
-        document_embedding = embeddings_to_embedding(
+        return embeddings_to_embedding(
             sentence_embeddings,
             sequence_length=ex.id_tree_to_root_width(document),
             output_embedding_size=document_embedding_size)
-
-    return ex.classify(
-        ex.mlp(document_embedding,
-               layer_sizes=[*hidden_layer_sizes, output_layer_size],
-               dropout_keep_prob=dropout_keep_prob),
-        label)
 
 
 @ex.func_scope()

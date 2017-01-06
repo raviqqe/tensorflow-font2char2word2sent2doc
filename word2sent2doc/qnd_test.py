@@ -14,5 +14,8 @@ def test_def_word2sent2doc():
 
     document = zeros(12, 34, 56)
 
-    model(document, zeros(12))
-    model(document, zeros(12, 10))
+    with tf.variable_scope("model0"):
+        model(document, zeros(12))
+
+    with tf.variable_scope("model1"):
+        model(document, zeros(12, 10))
