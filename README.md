@@ -1,4 +1,4 @@
-# word2sent2doc
+# tensorflow-word2sent2doc
 
 [![PyPI version](https://badge.fury.io/py/tensorflow-word2sent2doc.svg)](https://badge.fury.io/py/tensorflow-word2sent2doc)
 [![Python versions](https://img.shields.io/pypi/pyversions/tensorflow-word2sent2doc.svg)](setup.py)
