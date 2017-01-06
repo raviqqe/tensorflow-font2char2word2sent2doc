@@ -41,7 +41,7 @@ def rd2sent2doc(document,
     with tf.variable_scope("sent2doc"):
         return embeddings_to_embedding(
             sentence_embeddings,
-            sequence_length=ex.id_tree_to_root_width(document),
+            sequence_length=ex.id_tensor_to_root_width(document),
             output_size=document_embedding_size)
 
 
