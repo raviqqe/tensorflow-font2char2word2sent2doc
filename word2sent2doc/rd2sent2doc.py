@@ -34,7 +34,7 @@ def rd2sent2doc(document,
                 (_restore_sentence_shape(word_embeddings, sentences)
                  if save_memory else
                  tf.gather(word_embeddings, sentences)),
-                sequence_length=ex.id_sequence_to_length(sentences),
+                sequence_length=ex.id_vector_to_length(sentences),
                 output_size=sentence_embedding_size),
             document)
 
