@@ -1,6 +1,6 @@
+import extenteten as ex
 import tensorflow as tf
 
-from . import extenteten as ex
 from .rd2sent2doc import rd2sent2doc
 
 

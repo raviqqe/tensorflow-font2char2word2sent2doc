@@ -1,7 +1,7 @@
-import qnd
 import argtyp
+import extenteten as ex
+import qnd
 
-from . import extenteten as ex
 from .word2sent2doc import word2sent2doc
 
 

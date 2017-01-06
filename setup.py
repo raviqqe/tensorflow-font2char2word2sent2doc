@@ -21,7 +21,7 @@ setuptools.setup(
     packages=["word2sent2doc"],
     install_requires=[
         "tensorflow-qnd",
-        "tensorflow-extenteten==0.0.2",
+        "tensorflow-extenteten==0.0.3",
         "argtyp"
     ],
     classifiers=[

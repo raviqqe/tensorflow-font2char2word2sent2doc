@@ -1,7 +1,7 @@
 import functools
-import tensorflow as tf
 
-from . import extenteten as ex
+import extenteten as ex
+import tensorflow as tf
 
 
 def rd2sent2doc(document,
