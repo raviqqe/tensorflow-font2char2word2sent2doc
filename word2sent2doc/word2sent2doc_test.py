@@ -2,13 +2,13 @@ import sys
 
 import tensorflow as tf
 
-from . import qnd
+from .word2sent2doc import def_word2sent2doc
 
 
 def test_def_word2sent2doc():
     sys.argv = ["command", "--num_classes", "7", "--word_space_size", "10000"]
 
-    model = qnd.def_word2sent2doc()
+    model = def_word2sent2doc()
 
     zeros = lambda *shape: tf.zeros(shape, tf.int32)
 

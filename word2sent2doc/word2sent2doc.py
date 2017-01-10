@@ -1,5 +1,8 @@
+import argtyp
 import extenteten as ex
 import tensorflow as tf
+import qnd
+import qndex
 
 from .rd2sent2doc import rd2sent2doc
 
@@ -23,3 +26,25 @@ def word2sent2doc(document,
                        word_embeddings,
                        save_memory=True,
                        **rd2sent2doc_hyperparams)
+
+
+def add_flags():
+    adder = qnd.FlagAdder()
+
+    adder.add_required_flag("word_space_size", type=int)
+    adder.add_flag("word_embedding_size", type=int, default=100)
+    adder.add_flag("sentence_embedding_size", type=int, default=100)
+    adder.add_flag("document_embedding_size", type=int, default=100)
+    adder.add_flag("context_vector_size", type=int, default=100)
+
+    return adder
+
+
+def def_word2sent2doc():
+    adder = add_flags()
+    classify = qndex.def_classify()
+
+    def model(document, label):
+        return classify(word2sent2doc(document, **adder.flags), label)
+
+    return model

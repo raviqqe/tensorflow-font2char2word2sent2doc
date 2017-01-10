@@ -22,6 +22,7 @@ setuptools.setup(
     install_requires=[
         "tensorflow-qnd",
         "tensorflow-extenteten==0.0.3",
+        "tensorflow-qndex==0.0.1",
         "argtyp"
     ],
     classifiers=[
