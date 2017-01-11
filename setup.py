@@ -8,17 +8,17 @@ if not sys.version_info >= (3, 5):
 
 
 setuptools.setup(
-    name="tensorflow-word2sent2doc",
+    name="tensorflow-font2char2word2sent2doc",
     version=re.search(r'__version__ *= *"([0-9]+\.[0-9]+\.[0-9]+)" *\n',
-                      open("word2sent2doc/__init__.py").read()).group(1),
+                      open("font2char2word2sent2doc/__init__.py").read()).group(1),
     description="TensorFlow implementation of Hierarchical Attention Networks "
                 "for Document Classification",
     long_description=open("README.md").read(),
     license="Public Domain",
     author="Yota Toyama",
     author_email="raviqqe@gmail.com",
-    url="https://github.com/raviqqe/tensorflow-word2sent2doc/",
-    packages=["word2sent2doc"],
+    url="https://github.com/raviqqe/tensorflow-font2char2word2sent2doc/",
+    packages=["font2char2word2sent2doc"],
     install_requires=[
         "tensorflow-qnd",
         "tensorflow-extenteten==0.0.3",
