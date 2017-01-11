@@ -4,16 +4,18 @@ import tensorflow.contrib.slim as slim
 
 
 @ex.func_scope()
-def font2char(fonts, **vgg_hyperparams):
+def font2char(fonts, char_embedding_size, **vgg_hyperparams):
     assert ex.static_rank(fonts) == 3
-    return vgg_16(tf.expand_dims(fonts, -1), **vgg_hyperparams)
+    return vgg_16(tf.expand_dims(fonts, -1),
+                  output_size=char_embedding_size,
+                  **vgg_hyperparams)
 
 
 @ex.func_scope(initializer=tf.contrib.layers.xavier_initializer_conv2d)
 def vgg_16(inputs,
-           output_size=100,
-           dropout_keep_prob=0.5,
+           output_size,
            *,
+           dropout_keep_prob=0.5,
            mode):
     is_training = mode == tf.contrib.learn.ModeKeys.TRAIN
 
@@ -58,4 +60,4 @@ def vgg_16(inputs,
                     scope='fc8')
     h = dropout(h, 'dropout8')
 
-    return tf.reshape(h, [tf.shape(inputs)[0], -1])
+    return tf.reduce_mean(h, [1, 2])
