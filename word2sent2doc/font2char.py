@@ -9,7 +9,7 @@ def font2char(fonts, **vgg_hyperparams):
     return vgg_16(tf.expand_dims(fonts, -1), **vgg_hyperparams)
 
 
-@ex.func_scope(initializer=tf.contrib.layers.xavier_initializer)
+@ex.func_scope(initializer=tf.contrib.layers.xavier_initializer_conv2d)
 def vgg_16(inputs,
            output_size=100,
            dropout_keep_prob=0.5,
