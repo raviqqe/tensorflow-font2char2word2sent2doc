@@ -6,7 +6,9 @@ from .word2sent2doc import def_word2sent2doc
 
 
 def test_def_word2sent2doc():
-    sys.argv = ["command", "--num_classes", "7", "--word_space_size", "10000"]
+    sys.argv = ["command",
+                "--num_classes", "7",
+                "--word_file", "data/words.txt"]
 
     model = def_word2sent2doc()
 

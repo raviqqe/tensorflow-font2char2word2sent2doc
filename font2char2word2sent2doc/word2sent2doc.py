@@ -31,7 +31,7 @@ def word2sent2doc(document,
 def add_flags():
     adder = qnd.FlagAdder()
 
-    adder.add_required_flag("word_space_size", type=int)
+    adder.add_required_flag("word_file", dest="words", type=argtyp.file_lines)
     adder.add_flag("word_embedding_size", type=int, default=100)
     adder.add_flag("sentence_embedding_size", type=int, default=100)
     adder.add_flag("document_embedding_size", type=int, default=100)
@@ -45,6 +45,12 @@ def def_word2sent2doc():
     classify = qndex.def_classify()
 
     def model(document, label):
-        return classify(word2sent2doc(document, **adder.flags), label)
+        return classify(
+            word2sent2doc(
+                document,
+                word_space_size=len(qnd.FLAGS.words),
+                **{key: item for key, item in adder.flags.items()
+                   if key != "words"}),
+            label)
 
     return model

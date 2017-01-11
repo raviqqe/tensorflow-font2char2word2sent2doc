@@ -1,7 +1,9 @@
+import sys
+
 import extenteten as ex
 import tensorflow as tf
 
-from .char2word2sent2doc import char2word2sent2doc
+from .char2word2sent2doc import char2word2sent2doc, def_char2word2sent2doc
 
 
 def test_char2word2sent2doc():
@@ -14,3 +16,24 @@ def test_char2word2sent2doc():
                        sentence_embedding_size=100,
                        document_embedding_size=100,
                        context_vector_size=100)
+
+
+def test_def_char2word2sent2doc():
+    sys.argv = [
+        "command",
+        "--num_classes", "7",
+        "--char_file", "data/chars.txt",
+        "--word_file", "data/words.txt",
+    ]
+
+    model = def_char2word2sent2doc()
+
+    zeros = lambda *shape: tf.zeros(shape, tf.int32)
+
+    document = zeros(12, 34, 56)
+
+    with tf.variable_scope("model0"):
+        model(document, zeros(12))
+
+    with tf.variable_scope("model1"):
+        model(document, zeros(12, 10))
