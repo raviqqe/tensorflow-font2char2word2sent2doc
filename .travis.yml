@@ -11,4 +11,4 @@ addons:
       - ruby
 
 script:
-  - rake pytest
+  - rake test

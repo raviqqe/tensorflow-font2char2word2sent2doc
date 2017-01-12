@@ -1,1 +1,4 @@
 import '../lib/all.rb'
+
+
+task :default => 'var'

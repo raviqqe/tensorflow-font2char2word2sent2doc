@@ -12,4 +12,11 @@ task_in_venv :pytest do
 end
 
 
-task :test => :pytest
+task_in_venv :examples do
+  %w(word2sent2doc).each do |dir|
+    vsh "cd #{File.join 'examples', dir} && rake"
+  end
+end
+
+
+task :test => %i(pytest examples)
