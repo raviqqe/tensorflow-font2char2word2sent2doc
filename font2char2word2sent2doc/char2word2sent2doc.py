@@ -49,7 +49,7 @@ def def_char2word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
 
-    def model(document, label):
+    def model(document, label=None, *, mode):
         return classify(
             char2word2sent2doc(
                 document,
@@ -57,6 +57,7 @@ def def_char2word2sent2doc():
                 char_space_size=len(qnd.FLAGS.chars),
                 **{key: value for key, value in adder.flags.items()
                    if key not in {"chars", "words"}}),
-            label)
+            label,
+            mode=mode)
 
     return model

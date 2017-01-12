@@ -44,13 +44,14 @@ def def_word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
 
-    def model(document, label):
+    def model(document, label=None, *, mode):
         return classify(
             word2sent2doc(
                 document,
                 word_space_size=len(qnd.FLAGS.words),
                 **{key: item for key, item in adder.flags.items()
                    if key != "words"}),
-            label)
+            label,
+            mode=mode)
 
     return model

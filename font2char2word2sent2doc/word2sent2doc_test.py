@@ -17,7 +17,7 @@ def test_def_word2sent2doc():
     document = zeros(12, 34, 56)
 
     with tf.variable_scope("model0"):
-        model(document, zeros(12))
+        model(document, zeros(12), mode=tf.contrib.learn.ModeKeys.TRAIN)
 
     with tf.variable_scope("model1"):
-        model(document, zeros(12, 10))
+        model(document, zeros(12, 10), mode=tf.contrib.learn.ModeKeys.TRAIN)
