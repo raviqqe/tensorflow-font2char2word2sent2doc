@@ -2,6 +2,9 @@ import numpy as np
 import qnd
 
 
+__all__ = ['UNKNOWN_CHAR_INDEX', 'word_array']
+
+
 UNKNOWN_CHAR_INDEX = 1
 
 
