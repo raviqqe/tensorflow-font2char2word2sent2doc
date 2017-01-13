@@ -15,6 +15,7 @@ task :default => %i(dataset words.txt) do |t|
         --train_file '#{TRAIN_FILE}'
         --eval_file '#{EVAL_FILE}'
         --eval_steps 50
+        --batch_size 64
         --min_eval_frequency 10
   ).join(' ')
 end
