@@ -1,3 +1,6 @@
 [submodule "third/tensorflow-rakefile"]
 	path = third/tensorflow-rakefile
 	url = https://github.com/raviqqe/tensorflow-rakefile
+[submodule "examples/var/dataset"]
+	path = examples/var/dataset
+	url = https://github.com/raviqqe/imdb2json.rb
