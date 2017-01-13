@@ -14,8 +14,8 @@ NULL_INDEX = 0
 UNKNOWN_INDEX = 1
 
 
-qnd.add_flag('document_length', type=int, default=11)
-qnd.add_flag('sentence_length', type=int, default=40)
+qnd.add_flag('document_length', type=int, default=32)
+qnd.add_flag('sentence_length', type=int, default=64)
 
 
 def convert_json_example(string):
