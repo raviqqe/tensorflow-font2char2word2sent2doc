@@ -1,4 +1,6 @@
 VAR_DIR = 'var'
 SHARED_VAR_DIR = "../#{VAR_DIR}"
 DATASET_DIR = "#{VAR_DIR}/dataset"
+TRAIN_FILE = "#{DATASET_DIR}/aclImdb.json/train/*.json"
+EVAL_FILE = "#{DATASET_DIR}/aclImdb.json/test/*.json"
 OUTPUT_DIR = "#{VAR_DIR}/output"

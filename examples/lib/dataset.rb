@@ -6,6 +6,6 @@ file VAR_DIR do
 end
 
 
-directory "#{DATASET_DIR}/aclImdb.json" => VAR_DIR do
+task :dataset => VAR_DIR do
   sh "cd #{DATASET_DIR} && rake"
 end
