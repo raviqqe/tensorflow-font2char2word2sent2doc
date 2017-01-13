@@ -48,12 +48,13 @@ def add_flags():
 def def_char2word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
+    word_array = util.def_word_array()
 
     def model(document, label=None, *, mode):
         return classify(
             char2word2sent2doc(
                 document,
-                words=util.word_array(),
+                words=word_array(),
                 char_space_size=len(qnd.FLAGS.chars),
                 **{key: value for key, value in adder.flags.items()
                    if key not in {"chars", "words"}}),

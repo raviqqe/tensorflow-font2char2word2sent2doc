@@ -53,12 +53,13 @@ def add_flags():
 def def_font2char2word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
+    word_array = util.def_word_array()
 
     def model(document, label=None, *, mode):
         return classify(
             font2char2word2sent2doc(
                 document,
-                words=util.word_array(),
+                words=word_array(),
                 mode=mode,
                 **{key: value for key, value in adder.flags.items()
                    if key not in {"chars", "words"}}),
