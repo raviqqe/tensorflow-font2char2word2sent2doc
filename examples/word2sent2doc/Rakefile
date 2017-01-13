@@ -1,4 +1,4 @@
 import '../lib/all.rb'
 
 
-task :default => 'var'
+task :default => 'var/dataset/aclImdb.json'
