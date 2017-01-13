@@ -10,5 +10,10 @@ addons:
     packages:
       - ruby
 
+install:
+  - git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+  - export PATH="$HOME/.linuxbrew/bin:$PATH"
+  - brew install mecab mecab-ipadic
+
 script:
-  - rake test
+  - LD_LIBRARY_PATH="$HOME/.linuxbrew/lib" rake test
