@@ -2,6 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/tensorflow-font2char2word2sent2doc.svg)](https://badge.fury.io/py/tensorflow-font2char2word2sent2doc)
 [![Python versions](https://img.shields.io/pypi/pyversions/tensorflow-font2char2word2sent2doc.svg)](setup.py)
+[![CircleCI](https://circleci.com/gh/raviqqe/tensorflow-font2char2word2sent2doc.svg?style=svg)](https://circleci.com/gh/raviqqe/tensorflow-font2char2word2sent2doc)
 [![Build Status](https://travis-ci.org/raviqqe/tensorflow-font2char2word2sent2doc.svg?branch=master)](https://travis-ci.org/raviqqe/tensorflow-font2char2word2sent2doc)
 [![License](https://img.shields.io/badge/license-unlicense-lightgray.svg)](https://unlicense.org)
 
