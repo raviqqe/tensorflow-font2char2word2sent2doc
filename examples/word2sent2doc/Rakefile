@@ -1,14 +1,8 @@
+require '../lib/config'
 import '../lib/all.rb'
 
 
-file 'words.txt' => :dataset do |t|
-  sh "echo '<null>' > #{t.name}"
-  sh "echo '<unknown>' >> #{t.name}"
-  sh "cat #{DATASET_DIR}/aclImdb/imdb.vocab >> #{t.name}"
-end
-
-
-task :default => %i(dataset words.txt) do |t|
+task :default => [:dataset, WORD_FILE] do |t|
   sh %W(python main.py
         --num_classes 2
         --word_file #{t.sources[1]}
