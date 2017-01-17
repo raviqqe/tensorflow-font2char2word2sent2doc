@@ -16,7 +16,7 @@ end
 
 task_in_venv :examples do
   %w(word2sent2doc).each do |dir|
-    vsh "cd #{File.join 'examples', dir} && rake"
+    vsh "cd #{File.join 'examples', dir} && CUDA_VISIBLE_DEVICES=0 rake"
   end
 end
 
