@@ -1,4 +1,4 @@
-require '../lib/config'
+require_relative '../lib/config'
 import '../lib/all.rb'
 
 
@@ -8,7 +8,7 @@ task :default => [:dataset, WORD_FILE] do |t|
         --word_file #{t.sources[1]}
         --train_file '#{TRAIN_FILE}'
         --eval_file '#{EVAL_FILE}'
-        --train_steps 1000
+        --train_steps 200
         --eval_steps 50
         --batch_size 64
         --min_eval_frequency 10
