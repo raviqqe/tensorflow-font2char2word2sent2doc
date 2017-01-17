@@ -1,3 +1,4 @@
+require 'rake'
 require_relative './third/tensorflow-rakefile/tfrake.rb'
 include TFRake
 
@@ -22,3 +23,8 @@ end
 
 
 task :test => %i(pytest examples)
+
+
+Rake::Task[:clean].enhance do
+  sh 'cd examples/var/dataset && rake clobber'
+end
