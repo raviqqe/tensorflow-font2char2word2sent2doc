@@ -11,6 +11,6 @@ task :default => [:dataset, WORD_FILE, CHAR_FILE] do |t|
         --eval_file '#{EVAL_FILE}'
         --train_steps 200
         --eval_steps 50
-        --batch_size 32
+        --batch_size 16
   ).join(' ')
 end
