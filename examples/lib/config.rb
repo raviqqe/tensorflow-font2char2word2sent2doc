@@ -6,5 +6,6 @@ TRAIN_FILE = "#{DATASET_DIR}/aclImdb.json/train/*.json"
 EVAL_FILE = "#{DATASET_DIR}/aclImdb.json/test/*.json"
 
 WORD_FILE = 'words.txt'
+CHAR_FILE = 'chars.txt'
 
 OUTPUT_DIR = "#{VAR_DIR}/output"
