@@ -9,6 +9,7 @@ task :default => [:dataset, WORD_FILE, CHAR_FILE, FONT_FILE] do |t|
         --char_file #{t.sources[2]}
         --font_file #{t.sources[3]}
         --font_size 16
+        --save_word_array_file words.csv
         --save_font_array_file fonts.json
         --train_file '#{TRAIN_FILE}'
         --eval_file '#{EVAL_FILE}'
