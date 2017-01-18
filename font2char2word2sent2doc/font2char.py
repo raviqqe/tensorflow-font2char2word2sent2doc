@@ -17,13 +17,12 @@ def vgg_16(inputs,
            *,
            dropout_keep_prob=0.5,
            mode):
-    is_training = mode == tf.contrib.learn.ModeKeys.TRAIN
-
     def dropout(x, scope):
-        return slim.dropout(x,
-                            dropout_keep_prob,
-                            is_training=is_training,
-                            scope=scope)
+        return slim.dropout(
+            x,
+            dropout_keep_prob,
+            is_training=(mode == tf.contrib.learn.ModeKeys.TRAIN),
+            scope=scope)
 
     def multi_conv(x, num_convs, num_channels, scope):
         return slim.repeat(x,
