@@ -39,8 +39,8 @@ def char2word2sent2doc(document,
 def add_flags():
     adder = add_child_flags()
 
-    adder.add_required_flag("char_file", dest="chars", type=argtyp.file_lines)
     adder.add_flag("char_embedding_size", type=int, default=100)
+    qnd.add_required_flag("char_file", dest="chars", type=argtyp.file_lines)
 
     return adder
 
@@ -56,8 +56,7 @@ def def_char2word2sent2doc():
                 document,
                 words=word_array(),
                 char_space_size=len(qnd.FLAGS.chars),
-                **{key: value for key, value in adder.flags.items()
-                   if key not in {"chars", "words"}}),
+                **adder.flags),
             label,
             mode=mode)
 

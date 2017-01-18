@@ -76,8 +76,7 @@ def def_font2char2word2sent2doc():
                 words=word_array(),
                 mode=mode,
                 fonts=font_array(),
-                **{key: value for key, value in adder.flags.items()
-                   if key not in {"chars", "words"}}),
+                **adder.flags),
             label,
             mode=mode)
 

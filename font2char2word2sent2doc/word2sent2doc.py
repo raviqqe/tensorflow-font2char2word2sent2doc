@@ -31,11 +31,11 @@ def word2sent2doc(document,
 def add_flags():
     adder = qnd.FlagAdder()
 
-    adder.add_required_flag("word_file", dest="words", type=argtyp.file_lines)
     adder.add_flag("word_embedding_size", type=int, default=100)
     adder.add_flag("sentence_embedding_size", type=int, default=100)
     adder.add_flag("document_embedding_size", type=int, default=100)
     adder.add_flag("context_vector_size", type=int, default=100)
+    qnd.add_required_flag("word_file", dest="words", type=argtyp.file_lines)
 
     return adder
 
@@ -49,8 +49,7 @@ def def_word2sent2doc():
             word2sent2doc(
                 document,
                 word_space_size=len(qnd.FLAGS.words),
-                **{key: item for key, item in adder.flags.items()
-                   if key != "words"}),
+                **adder.flags),
             label,
             mode=mode)
 
