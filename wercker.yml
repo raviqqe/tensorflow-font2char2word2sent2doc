@@ -1,0 +1,20 @@
+box: python:3.5
+
+build:
+  steps:
+    - script:
+      name: checkout
+      code: git submodule update --init --recursive
+
+    - script:
+      name: install
+      code: |
+        apt -y update --fix-missing && apt -y install rake
+        useradd -m tester
+        chown -R tester .
+        su -c 'git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew' tester
+        su -c 'PATH="$HOME/.linuxbrew/bin:$PATH" brew install mecab mecab-ipadic' tester
+
+    - script:
+      name: test
+      code: su -c 'PATH="$HOME/.linuxbrew/bin:$PATH" LD_LIBRARY_PATH="$HOME/.linuxbrew/lib" rake test' tester
