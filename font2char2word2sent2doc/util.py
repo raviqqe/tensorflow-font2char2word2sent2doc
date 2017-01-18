@@ -9,8 +9,9 @@ NULL_INDEX = 0
 UNKNOWN_INDEX = 1
 
 
-def def_word_array(save_csv=True):
+def def_word_array():
     qnd.add_flag('word_length', type=int, default=8)
+    qnd.add_flag('save_word_array_file')
 
     def word_array():
         word_array = np.zeros([len(qnd.FLAGS.words),
@@ -28,8 +29,11 @@ def def_word_array(save_csv=True):
         word_array[UNKNOWN_INDEX, :] = NULL_INDEX
         word_array[UNKNOWN_INDEX, 0] = UNKNOWN_INDEX
 
-        if save_csv:
-            np.savetxt('words.csv', word_array, fmt='%d', delimiter=',')
+        if qnd.FLAGS.save_word_array_file:
+            np.savetxt(qnd.FLAGS.save_word_array_file,
+                       word_array,
+                       fmt='%d',
+                       delimiter=',')
 
         return word_array
 

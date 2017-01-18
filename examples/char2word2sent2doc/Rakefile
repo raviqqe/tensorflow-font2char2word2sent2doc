@@ -12,5 +12,6 @@ task :default => [:dataset, WORD_FILE, CHAR_FILE] do |t|
         --train_steps 20
         --eval_steps 20
         --batch_size 4
+        --save_word_array_file words.csv
   ).join(' ')
 end
