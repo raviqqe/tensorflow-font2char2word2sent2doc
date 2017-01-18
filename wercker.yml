@@ -20,3 +20,7 @@ build:
     - script:
       name: test
       code: su -c 'PATH="$HOME/.linuxbrew/bin:$PATH" LD_LIBRARY_PATH="$HOME/.linuxbrew/lib" rake test' tester
+
+    - script:
+      name: clean
+      code: su -c 'rake clean' tester
