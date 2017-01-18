@@ -1,5 +1,7 @@
 box: python:3.5
 
+no-response-timeout: 20
+
 build:
   steps:
     - script:
