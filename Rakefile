@@ -19,10 +19,16 @@ task_in_venv :pytest do
 end
 
 
-task_in_venv :examples do
-  %w(word2sent2doc char2word2sent2doc font2char2word2sent2doc).each do |dir|
+task :examples
+
+%w(word2sent2doc char2word2sent2doc font2char2word2sent2doc).each do |dir|
+  name = "#{dir}_example"
+
+  task_in_venv name do
     vsh "cd #{File.join 'examples', dir} && CUDA_VISIBLE_DEVICES=0 rake"
   end
+
+  Rake::Task[:examples].enhance [name]
 end
 
 
