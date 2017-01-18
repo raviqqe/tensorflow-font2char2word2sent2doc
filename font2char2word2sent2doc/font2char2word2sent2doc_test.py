@@ -8,7 +8,7 @@ from .font2char2word2sent2doc import def_font2char2word2sent2doc
 def test_def_font2char2word2sent2doc():
     sys.argv = ["command",
                 "--num_classes", "7",
-                "--font_file", "data/fonts.json",
+                "--font_file", "data/font.ttf",
                 "--char_file", "data/chars.txt",
                 "--word_file", "data/words.txt"]
 

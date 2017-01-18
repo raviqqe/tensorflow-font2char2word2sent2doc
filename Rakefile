@@ -9,6 +9,10 @@ define_tasks('font2char2word2sent2doc',
 
 
 task_in_venv :pytest do
+  sh 'wget http://dforest.watch.impress.co.jp/library/i/ipafont/10746/ipag00303.zip'
+  sh 'unzip *.zip'
+  sh 'cp ipag00303/*.ttf data/font.ttf'
+
   Dir.glob('font2char2word2sent2doc/**/*_test.py').each do |file|
     vsh :pytest, file
   end
@@ -16,7 +20,7 @@ end
 
 
 task_in_venv :examples do
-  %w(word2sent2doc char2word2sent2doc).each do |dir|
+  %w(word2sent2doc char2word2sent2doc font2char2word2sent2doc).each do |dir|
     vsh "cd #{File.join 'examples', dir} && CUDA_VISIBLE_DEVICES=0 rake"
   end
 end

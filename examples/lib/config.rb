@@ -7,5 +7,6 @@ EVAL_FILE = "#{DATASET_DIR}/aclImdb.json/test/*.json"
 
 WORD_FILE = 'words.txt'
 CHAR_FILE = 'chars.txt'
+FONT_FILE = 'font.ttf'
 
 OUTPUT_DIR = "#{VAR_DIR}/output"

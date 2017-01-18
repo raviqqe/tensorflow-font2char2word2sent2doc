@@ -29,3 +29,10 @@ file CHAR_FILE => WORD_FILE do |t|
         grep -v -e #{null_char} -e #{unknown_char} -e '^[[:blank:]]*$' |
         sort -u >> #{t.name}).join(' ')
 end
+
+
+file FONT_FILE => VAR_DIR do |t|
+  sh "wget -O #{t.source}/font.zip http://dforest.watch.impress.co.jp/library/i/ipafont/10746/ipag00303.zip"
+  sh "cd #{t.source} && unzip font.zip"
+  sh "cp #{VAR_DIR}/ipag00303/ipag.ttf #{t.name}"
+end

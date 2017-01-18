@@ -20,10 +20,11 @@ setuptools.setup(
     url="https://github.com/raviqqe/tensorflow-font2char2word2sent2doc/",
     packages=["font2char2word2sent2doc"],
     install_requires=[
+        "argtyp",
+        "char2image",
         "tensorflow-qnd<=1",
         "tensorflow-extenteten<=1",
         "tensorflow-qndex<=1",
-        "argtyp"
     ],
     classifiers=[
         "Development Status :: 3 - Alpha",

@@ -1,7 +1,10 @@
-import argtyp
+import json
+
+import char2image
 import extenteten as ex
 import numpy as np
 import tensorflow as tf
+import qnd
 import qndex
 
 from . import util
@@ -35,19 +38,30 @@ def font2char2word2sent2doc(document,
 
 def add_flags():
     adder = add_child_flags()
-
-    def font_file(filename):
-        fonts = np.array(argtyp.json_file(filename), np.float32)
-        fonts -= fonts.mean()
-        return fonts / np.sqrt((fonts ** 2).mean())
-
-    adder.add_required_flag(
-        "font_file",
-        dest="fonts",
-        type=font_file)
     adder.add_flag("dropout_keep_prob", type=float, default=0.5)
 
+    qnd.add_required_flag("font_file")
+    qnd.add_flag("font_size", type=int, default=32)
+    qnd.add_flag("save_font_array_file")
+
     return adder
+
+
+def font_array():
+    fonts = np.array(
+        char2image.chars_to_images(
+            qnd.FLAGS.chars,
+            char2image.filename_to_font(qnd.FLAGS.font_file,
+                                        qnd.FLAGS.font_size)),
+        np.float32)
+
+    if qnd.FLAGS.save_font_array_file:
+        with open(qnd.FLAGS.save_font_array_file, "w") as phile:
+            json.dump(fonts.tolist(), phile)
+
+    fonts -= fonts.mean()
+
+    return fonts / np.sqrt((fonts ** 2).mean())
 
 
 def def_font2char2word2sent2doc():
@@ -61,6 +75,7 @@ def def_font2char2word2sent2doc():
                 document,
                 words=word_array(),
                 mode=mode,
+                fonts=font_array(),
                 **{key: value for key, value in adder.flags.items()
                    if key not in {"chars", "words"}}),
             label,
