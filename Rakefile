@@ -35,6 +35,6 @@ end
 task :test => %i(pytest examples)
 
 
-Rake::Task[:clean].enhance do
+task :clobber => :clean do
   sh 'cd examples/var/dataset && rake clobber'
 end
