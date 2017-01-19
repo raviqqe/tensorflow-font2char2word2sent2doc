@@ -43,6 +43,7 @@ def add_flags():
     qnd.add_required_flag("font_file")
     qnd.add_flag("font_size", type=int, default=32)
     qnd.add_flag("save_font_array_file")
+    qnd.add_flag("regularization_scale", type=float, default=1e-8)
 
     return adder
 
@@ -78,6 +79,7 @@ def def_font2char2word2sent2doc():
                 fonts=font_array(),
                 **adder.flags),
             label,
-            mode=mode)
+            mode=mode,
+            regularization_scale=qnd.FLAGS.regularization_scale)
 
     return model
