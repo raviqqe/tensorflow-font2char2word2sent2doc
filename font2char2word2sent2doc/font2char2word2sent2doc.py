@@ -30,9 +30,7 @@ def font2char2word2sent2doc(document,
         document,
         words=words,
         char_embeddings=font2char(fonts,
-                                  char_embedding_size=char_embedding_size,
-                                  dropout_keep_prob=dropout_keep_prob,
-                                  mode=mode),
+                                  char_embedding_size=char_embedding_size),
         **ar2word2sent2doc_hyperparams)
 
 
