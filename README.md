@@ -11,5 +11,3 @@ TensorFlow implementation of [Hierarchical Attention Networks for Document Class
 ## License
 
 [The Unlicense](https://unlicense.org)
-except for [VGG implementation](font2char2word2sent2doc/font2char.py)
-which is under [Apache license 2.0](https://github.com/tensorflow/models/blob/master/LICENSE).
