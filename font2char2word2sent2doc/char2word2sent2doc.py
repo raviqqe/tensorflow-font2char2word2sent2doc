@@ -5,7 +5,6 @@ import qnd
 import qndex
 import tensorflow as tf
 
-from . import util
 from .word2sent2doc import add_flags as add_child_flags
 from .ar2word2sent2doc import ar2word2sent2doc
 
@@ -38,17 +37,14 @@ def char2word2sent2doc(document,
 
 def add_flags():
     adder = add_child_flags()
-
     adder.add_flag("char_embedding_size", type=int, default=100)
-    qnd.add_required_flag("char_file", dest="chars", type=argtyp.file_lines)
-
     return adder
 
 
 def def_char2word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
-    word_array = util.def_word_array()
+    word_array = qndex.nlp.def_word_array()
 
     def model(document, label=None, *, mode):
         return classify(

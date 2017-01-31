@@ -7,7 +7,6 @@ import tensorflow as tf
 import qnd
 import qndex
 
-from . import util
 from .ar2word2sent2doc import ar2word2sent2doc
 from .char2word2sent2doc import add_flags as add_child_flags
 from .font2char import font2char
@@ -66,7 +65,7 @@ def font_array():
 def def_font2char2word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
-    word_array = util.def_word_array()
+    word_array = qndex.nlp.def_word_array()
 
     def model(document, label=None, *, mode):
         return classify(

@@ -35,7 +35,7 @@ def add_flags():
     adder.add_flag("sentence_embedding_size", type=int, default=100)
     adder.add_flag("document_embedding_size", type=int, default=100)
     adder.add_flag("context_vector_size", type=int, default=100)
-    qnd.add_required_flag("word_file", dest="words", type=argtyp.file_lines)
+    qndex.nlp.add_word_file_flag()
 
     return adder
 
