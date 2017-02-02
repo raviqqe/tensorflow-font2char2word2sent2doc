@@ -67,7 +67,7 @@ def def_font2char2word2sent2doc():
     classify = qndex.def_classify()
     word_array = qndex.nlp.def_word_array()
 
-    def model(document, label=None, *, mode):
+    def model(document, label=None, *, mode, key=None):
         return classify(
             font2char2word2sent2doc(
                 document,
@@ -77,6 +77,7 @@ def def_font2char2word2sent2doc():
                 **adder.flags),
             label,
             mode=mode,
+            key=key,
             regularization_scale=qnd.FLAGS.regularization_scale)
 
     return model
