@@ -35,7 +35,6 @@ def add_flags():
     adder.add_flag("sentence_embedding_size", type=int, default=100)
     adder.add_flag("document_embedding_size", type=int, default=100)
     adder.add_flag("context_vector_size", type=int, default=100)
-    qndex.nlp.add_word_file_flag()
 
     return adder
 
@@ -43,12 +42,13 @@ def add_flags():
 def def_word2sent2doc():
     adder = add_flags()
     classify = qndex.def_classify()
+    get_words = qndex.nlp.def_words()
 
     def model(document, label=None, *, mode, key=None):
         return classify(
             word2sent2doc(
                 document,
-                word_space_size=len(qnd.FLAGS.words),
+                word_space_size=len(get_words()),
                 **adder.flags),
             label,
             key=key,
