@@ -17,7 +17,6 @@ def font2char2word2sent2doc(document,
                             *,
                             words,
                             fonts,
-                            char_embedding_size,
                             dropout_keep_prob,
                             mode,
                             **ar2word2sent2doc_hyperparams):
@@ -28,8 +27,7 @@ def font2char2word2sent2doc(document,
     return ar2word2sent2doc(
         document,
         words=words,
-        char_embeddings=font2char(fonts,
-                                  char_embedding_size=char_embedding_size),
+        char_embeddings=font2char(fonts),
         **ar2word2sent2doc_hyperparams)
 
 

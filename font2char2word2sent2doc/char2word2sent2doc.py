@@ -37,12 +37,12 @@ def char2word2sent2doc(document,
 
 def add_flags():
     adder = add_child_flags()
-    adder.add_flag("char_embedding_size", type=int, default=100)
     return adder
 
 
 def def_char2word2sent2doc():
     adder = add_flags()
+    adder.add_flag("char_embedding_size", type=int, default=100)
     classify = qndex.def_classify()
     word_array = qndex.nlp.def_word_array()
 
