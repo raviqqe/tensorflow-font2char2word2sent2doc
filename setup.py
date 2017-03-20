@@ -9,8 +9,9 @@ if not sys.version_info >= (3, 5):
 
 setuptools.setup(
     name="tensorflow-font2char2word2sent2doc",
-    version=re.search(r'__version__ *= *"([0-9]+\.[0-9]+\.[0-9]+)" *\n',
-                      open("font2char2word2sent2doc/__init__.py").read()).group(1),
+    version=re.search(
+        r'__version__ *= *"([0-9]+\.[0-9]+\.[0-9]+)" *\n',
+        open("font2char2word2sent2doc/__init__.py").read()).group(1),
     description="TensorFlow implementation of Hierarchical Attention Networks "
                 "for Document Classification",
     long_description=open("README.md").read(),
@@ -30,7 +31,7 @@ setuptools.setup(
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "License :: Public Domain",
-        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: System :: Networking",
     ],
