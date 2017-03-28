@@ -55,6 +55,7 @@ def def_char2word2sent2doc():
                 **adder.flags),
             label,
             key=key,
-            mode=mode)
+            mode=mode,
+            regularization_scale=qnd.FLAGS.regularization_scale)
 
     return model
