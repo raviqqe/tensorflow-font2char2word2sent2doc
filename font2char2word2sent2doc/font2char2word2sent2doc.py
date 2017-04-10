@@ -19,6 +19,7 @@ def font2char2word2sent2doc(document,
                             fonts,
                             dropout_keep_prob,
                             num_cnn_layers,
+                            num_cnn_channels,
                             mode,
                             **ar2word2sent2doc_hyperparams):
     assert ex.static_rank(document) == 3
@@ -28,7 +29,9 @@ def font2char2word2sent2doc(document,
     return ar2word2sent2doc(
         document,
         words=words,
-        char_embeddings=font2char(fonts, num_layers=num_cnn_layers),
+        char_embeddings=font2char(fonts,
+                                  num_layers=num_cnn_layers,
+                                  num_channels=num_cnn_channels),
         **ar2word2sent2doc_hyperparams)
 
 
@@ -36,6 +39,7 @@ def add_flags():
     adder = add_child_flags()
     adder.add_flag("dropout_keep_prob", type=float, default=0.5)
     adder.add_flag("num_cnn_layers", type=int, default=4)
+    adder.add_flag("num_cnn_channels", type=int, default=32)
 
     qnd.add_required_flag("font_file")
     qnd.add_flag("font_size", type=int, default=32)
