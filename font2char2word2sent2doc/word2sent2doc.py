@@ -29,6 +29,8 @@ def word2sent2doc(document,
 
 
 def add_flags():
+    qnd.add_flag("regularization_scale", type=float, default=1e-8)
+
     adder = qnd.FlagAdder()
 
     adder.add_flag("word_embedding_size", type=int, default=100)
@@ -52,6 +54,7 @@ def def_word2sent2doc():
                 **adder.flags),
             label,
             key=key,
-            mode=mode)
+            mode=mode,
+            regularization_scale=qnd.FLAGS.regularization_scale)
 
     return model
