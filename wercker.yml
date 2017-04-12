@@ -1,4 +1,4 @@
-box: python:3.5
+box: python:3.6
 
 no-response-timeout: 20
 
