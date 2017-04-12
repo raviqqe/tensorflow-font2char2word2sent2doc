@@ -1,24 +1,20 @@
 require_relative '../lib/config'
 import '../lib/all.rb'
 
-task default: [:dataset, WORD_FILE, CHAR_FILE, FONT_FILE] do |t|
-  sh %W[python main.py
+
+task :default => [:dataset, WORD_FILE, CHAR_FILE, FONT_FILE] do |t|
+  sh %W(python main.py
         --num_classes 2
         --word_file #{t.sources[1]}
         --char_file #{t.sources[2]}
         --font_file #{t.sources[3]}
-
         --font_size 16
-        --word_embedding_size 64
-        --sentence_embedding_size 64
-        --document_embedding_size 64
-        --hidden_layer_size 64
-
         --save_word_array_file words.csv
         --save_font_array_file fonts.json
         --train_file '#{TRAIN_FILE}'
         --eval_file '#{EVAL_FILE}'
         --train_steps 20
         --eval_steps 20
-        --batch_size 4].join(' ')
+        --batch_size 4
+  ).join(' ')
 end
