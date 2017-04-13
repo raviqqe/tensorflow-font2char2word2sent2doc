@@ -1,6 +1,6 @@
 box: python:3.5
 
-no-response-timeout: 20
+no-response-timeout: 30
 
 build:
   steps:
