@@ -20,7 +20,7 @@ task :examples
   name = "#{dir}_example"
 
   task_in_venv name do
-    vsh "cd #{File.join 'examples', dir} && CUDA_VISIBLE_DEVICES=0 rake"
+    vsh "cd #{File.join 'examples', dir} && rake"
   end
 
   Rake::Task[:examples].enhance [name]
