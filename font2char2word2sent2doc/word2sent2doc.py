@@ -1,4 +1,3 @@
-import argtyp
 import extenteten as ex
 import tensorflow as tf
 import qnd

@@ -1,6 +1,4 @@
-import argtyp
 import extenteten as ex
-import numpy as np
 import qnd
 import qndex
 import tensorflow as tf
