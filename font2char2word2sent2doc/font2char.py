@@ -1,4 +1,5 @@
 import extenteten as ex
+import extenteten.collections as collections
 import tensorflow as tf
 
 
@@ -20,9 +21,12 @@ def font2char(font, *, nums_of_channels, nums_of_attention_channels):
 def _attend_to_image(images, nums_of_channels):
     assert ex.static_rank(images) == 4
 
+    attentions = _calculate_attention(images, nums_of_channels)
+    collections.add_attention(attentions)
+
     return tf.transpose(
         tf.transpose(images) *
-        tf.transpose(_calculate_attention(images, nums_of_channels)))
+        tf.transpose(attentions))
 
 
 @ex.func_scope()

@@ -3,6 +3,7 @@ import json
 import argtyp
 import char2image
 import extenteten as ex
+import extenteten.collections as collections
 import numpy as np
 import qnd
 import qndex
@@ -85,6 +86,7 @@ def def_font2char2word2sent2doc():
                 **adder.flags),
             label,
             key=key,
+            predictions={'font_attentions': collections.get_attentions()[0]},
             mode=mode,
             regularization_scale=qnd.FLAGS.regularization_scale)
 
