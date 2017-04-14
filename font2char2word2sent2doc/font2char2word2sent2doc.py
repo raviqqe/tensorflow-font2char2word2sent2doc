@@ -7,6 +7,7 @@ import extenteten.collections as collections
 import numpy as np
 import qnd
 import qndex
+import tensorflow as tf
 
 from .ar2word2sent2doc import ar2word2sent2doc
 from .char2word2sent2doc import add_flags as add_child_flags
@@ -86,7 +87,13 @@ def def_font2char2word2sent2doc():
                 **adder.flags),
             label,
             key=key,
-            predictions={'font_attentions': collections.get_attentions()[0]},
+            predictions={
+                'font_attentions': tf.tile(
+                    tf.expand_dims(
+                        collections.get_attentions()[0],
+                        axis=0),
+                    [tf.shape(document)[0], 1, 1, 1]),
+            },
             mode=mode,
             regularization_scale=qnd.FLAGS.regularization_scale)
 
