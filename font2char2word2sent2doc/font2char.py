@@ -29,10 +29,13 @@ def _attend_to_image(images, nums_of_channels):
 def _calculate_attention(images, nums_of_channels):
     assert ex.static_rank(images) == 4
 
-    logits = tf.image.resize_nearest_neighbor(
-        tf.expand_dims(tf.reduce_sum(_cnn(images, nums_of_channels), axis=3),
-                       axis=-1),
-        tf.shape(images)[1:3])
+    logits = tf.squeeze(
+        tf.image.resize_nearest_neighbor(
+            tf.expand_dims(tf.reduce_sum(_cnn(images, nums_of_channels),
+                                         axis=3),
+                           axis=-1),
+            tf.shape(images)[1:3]),
+        axis=3)
 
     return tf.reshape(
         tf.nn.softmax(tf.reshape(logits, [tf.shape(logits)[0], -1])),
